@@ -1,0 +1,115 @@
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Control Panel */
+.control-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 12px;
+  border-radius: 8px;
+  color: #00ff9c;
+  font-family: monospace;
+  z-index: 10;
+}
+
+.control-panel button {
+  margin: 4px;
+  padding: 6px 10px;
+  background: black;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  cursor: pointer;
+}
+
+.control-panel button:hover {
+  background: #00ff9c;
+  color: black;
+}
+
+/* Radar Overlay */
+.radar-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  text-align: center;
+}
+
+.radar {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 2px solid #00ff9c;
+  background: radial-gradient(circle, rgba(0,255,156,0.2), transparent 70%);
+  overflow: hidden;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    rgba(0,255,156,0.5),
+    transparent 60%
+  );
+}
+
+.center-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00ff9c;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px #00ff9c;
+}
+
+.signal-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+}
+
+.signal-dot.active {
+  opacity: 1;
+  box-shadow: 0 0 10px red;
+}
+
+.signal-ring {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid red;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.6; }
+}
+
+.radar-text {
+  margin-top: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #00ff9c;
+}
